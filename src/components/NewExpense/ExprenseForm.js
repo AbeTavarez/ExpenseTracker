@@ -16,11 +16,27 @@ const ExpenseForm = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title: userInput.title,
+      amount: userInput.amount,
+      date: new Date(userInput.date)
+    };
+    console.log(expenseData);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Title</label>
-        <input type="text" onChange={handleChange} id="title" />
+        <input
+          type="text"
+          onChange={handleChange}
+          id="title"
+          value={userInput.title}
+        />
       </div>
       <div>
         <label htmlFor="title">Amount</label>
@@ -30,6 +46,7 @@ const ExpenseForm = () => {
           step="0.01"
           onChange={handleChange}
           id="amount"
+          value={userInput.amount}
         />
       </div>
       <div>
@@ -40,6 +57,7 @@ const ExpenseForm = () => {
           max="2022-01-01"
           onChange={handleChange}
           id="date"
+          value={userInput.date}
         />
       </div>
 
