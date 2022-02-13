@@ -1,13 +1,16 @@
+import ExpenseDate from './ExpenseDate';
+import Card from './layout/Card';
+import '../index.css'
 
-const ExpenseItem = ({title, amount, date}) => {
-
+const ExpenseItem = (props) => {
+  
   return (
-    <div>
+    <Card className='card'>
       <h1>Expense</h1>
-      <h2>{title}</h2>
-      <h3>{amount}</h3>
-      <h4>{date.toLocaleString('en-US', {month: 'long'})}</h4>
-    </div>
+      <h2>{props.title}</h2>
+      <h3>{props.amount}</h3>
+     <ExpenseDate date={props.date} />
+    </Card>
   )
 };
 
