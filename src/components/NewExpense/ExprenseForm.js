@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [userInput, setUserInput] = useState({
     title: '',
     amount: '',
@@ -24,7 +24,7 @@ const ExpenseForm = () => {
       amount: userInput.amount,
       date: new Date(userInput.date)
     };
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
   };
 
   return (
@@ -53,8 +53,8 @@ const ExpenseForm = () => {
         <label htmlFor="title">Date</label>
         <input
           type="date"
-          min="2019-01-01"
-          max="2022-01-01"
+          min="2022-01-01"
+          max="2022-01-12"
           onChange={handleChange}
           id="date"
           value={userInput.date}

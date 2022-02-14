@@ -6,9 +6,14 @@ function App() {
     { id: 2, title: 'Cellphone', ammount: 60, date: new Date() },
     { id: 3, title: 'Internet', ammount: 80, date: new Date() }
   ];
+
+  const addExpense = (expense) => {
+    console.log('from app.js');
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddNewExpense={addExpense} />
       <Expenses items={expenses} />
     </div>
   );
